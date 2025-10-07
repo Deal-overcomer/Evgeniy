@@ -2,84 +2,182 @@
 <html lang="ru">
 
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>SV Design — Прайс</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
+
 <body>
-<div class="container">
-    <header class="brand">
-        <img src="assets/logo.png" alt="SV Design logo" class="logo"/>
-    </header>
+    <div class="container">
+        <header class="brand">
+            <img src="assets/logo.png" alt="SV Design logo" class="logo" />
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link active">Прайс-лист</a>
+                <a href="catalog.html" class="nav-link">Каталог</a>
+            </nav>
+        </header>
 
-    <main>
-        <h1 class="title">Актуальный прайс действует с data</h1>
+        <main>
+            <h1 class="title">Прайс-лист Impress+SV Doors — действует с октября 2025</h1>
 
-        <table class="info">
-            <tr>
-                <td class="key">Адрес склада</td>
-                <td class="value">пdsfgsdfg</td>
-            </tr>
-            <tr>
-                <td class="key">Адрес офиса</td>
-                <td class="value">gfdgfdgfd</td>
-            </tr>
-            <tr>
-                <td class="key">Рабочий телефон</td>
-                <td class="value">number</td>
-            </tr>
-            <tr>
-                <td class="key">Почта</td>
-                <td class="value">email</td>
-            </tr>
-            <tr>
-                <td class="key">Режим работы</td>
-                <td class="value">dasd<br>dsa</td>
-            </tr>
-            <tr>
-                <td class="key">Сайт</td>
-                <td class="value"><a href="https://www.samle.com" target="_blank" rel="noopener">www.sample.com</a>
-                </td>
-            </tr>
-        </table>
+            <!-- Фильтры и поиск -->
+            <div class="controls">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Поиск по названию или артикулу..."
+                        class="search-input">
+                </div>
+                <div class="filters">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="">Все категории</option>
+                        <option value="Межкомнатные двери">Межкомнатные двери</option>
+                        <option value="Входные двери">Входные двери</option>
+                        <option value="Раздвижные системы">Раздвижные системы</option>
+                        <option value="Фурнитура">Фурнитура</option>
+                    </select>
+                    <select id="materialFilter" class="filter-select">
+                        <option value="">Все материалы</option>
+                        <option value="Массив">Массив</option>
+                        <option value="МДФ">МДФ</option>
+                        <option value="Экошпон">Экошпон</option>
+                        <option value="Металл">Металл</option>
+                    </select>
+                </div>
+            </div>
 
-        <section class="section orange">Отдел продаж</section>
+            <section class="section orange">Каталог товаров</section>
 
-        <table class="info">
-            <tr>
-                <td class="key">Ваш персональный менеджер</td>
-                <td class="value">number</td>
-            </tr>
-            <tr>
-                <td class="key">Для звонков из Крыма</td>
-                <td class="value">number</td>
-            </tr>
-        </table>
+            <!-- Прайс-лист таблица -->
+            <div class="price-table-container">
+                <table class="price-table" id="priceTable">
+                    <thead>
+                        <tr>
+                            <th class="sortable" data-sort="article">Артикул</th>
+                            <th class="sortable" data-sort="name">Наименование</th>
+                            <th>Категория</th>
+                            <th>Материал</th>
+                            <th>Размеры</th>
+                            <th class="sortable" data-sort="price">Цена, ₽</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-category="Межкомнатные двери" data-material="Экошпон">
+                            <td class="article">ID-001</td>
+                            <td class="name">Дверь Impress Classic Венге</td>
+                            <td>Межкомнатные двери</td>
+                            <td>Экошпон</td>
+                            <td>800×2000×40</td>
+                            <td class="price" data-price="12500">12 500</td>
+                        </tr>
+                        <tr data-category="Межкомнатные двери" data-material="МДФ">
+                            <td class="article">ID-002</td>
+                            <td class="name">Дверь Impress Modern Белый</td>
+                            <td>Межкомнатные двери</td>
+                            <td>МДФ</td>
+                            <td>700×2000×40</td>
+                            <td class="price" data-price="9800">9 800</td>
+                        </tr>
+                        <tr data-category="Межкомнатные двери" data-material="Массив">
+                            <td class="article">ID-003</td>
+                            <td class="name">Дверь Impress Premium Дуб</td>
+                            <td>Межкомнатные двери</td>
+                            <td>Массив</td>
+                            <td>800×2000×40</td>
+                            <td class="price" data-price="25800">25 800</td>
+                        </tr>
+                        <tr data-category="Входные двери" data-material="Металл">
+                            <td class="article">SV-101</td>
+                            <td class="name">Входная дверь SV Guard Pro</td>
+                            <td>Входные двери</td>
+                            <td>Металл</td>
+                            <td>860×2050×100</td>
+                            <td class="price" data-price="35200">35 200</td>
+                        </tr>
+                        <tr data-category="Входные двери" data-material="Металл">
+                            <td class="article">SV-102</td>
+                            <td class="name">Входная дверь SV Standard</td>
+                            <td>Входные двери</td>
+                            <td>Металл</td>
+                            <td>860×2050×80</td>
+                            <td class="price" data-price="22900">22 900</td>
+                        </tr>
+                        <tr data-category="Раздвижные системы" data-material="МДФ">
+                            <td class="article">RS-201</td>
+                            <td class="name">Раздвижная система Loft Style</td>
+                            <td>Раздвижные системы</td>
+                            <td>МДФ</td>
+                            <td>800×2000×40</td>
+                            <td class="price" data-price="18500">18 500</td>
+                        </tr>
+                        <tr data-category="Фурнитура" data-material="Металл">
+                            <td class="article">FU-301</td>
+                            <td class="name">Ручка дверная Impress Handle</td>
+                            <td>Фурнитура</td>
+                            <td>Металл</td>
+                            <td>—</td>
+                            <td class="price" data-price="1200">1 200</td>
+                        </tr>
+                        <tr data-category="Фурнитура" data-material="Металл">
+                            <td class="article">FU-302</td>
+                            <td class="name">Замок врезной SV Lock</td>
+                            <td>Фурнитура</td>
+                            <td>Металл</td>
+                            <td>—</td>
+                            <td class="price" data-price="3500">3 500</td>
+                        </tr>
+                        <tr data-category="Межкомнатные двери" data-material="Экошпон">
+                            <td class="article">ID-004</td>
+                            <td class="name">Дверь Impress Eco Орех</td>
+                            <td>Межкомнатные двери</td>
+                            <td>Экошпон</td>
+                            <td>900×2000×40</td>
+                            <td class="price" data-price="13800">13 800</td>
+                        </tr>
+                        <tr data-category="Раздвижные системы" data-material="Экошпон">
+                            <td class="article">RS-202</td>
+                            <td class="name">Система купе Impress Slide</td>
+                            <td>Раздвижные системы</td>
+                            <td>Экошпон</td>
+                            <td>1200×2000×40</td>
+                            <td class="price" data-price="28900">28 900</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <section class="section orange">Отдел маркетинга</section>
+            <section class="section orange">Контактная информация</section>
 
-        <table class="info">
-            <tr>
-                <td class="key">Отдел маркетинга</td>
-                <td class="value">number<br>email</td>
-            </tr>
-        </table>
+            <table class="info">
+                <tr>
+                    <td class="key">Адрес офиса</td>
+                    <td class="value">г. Москва, ул. Промышленная, д. 15</td>
+                </tr>
+                <tr>
+                    <td class="key">Телефон отдела продаж</td>
+                    <td class="value">+7 (495) 123-45-67</td>
+                </tr>
+                <tr>
+                    <td class="key">Email</td>
+                    <td class="value">info@impresssv.ru</td>
+                </tr>
+                <tr>
+                    <td class="key">Режим работы</td>
+                    <td class="value">Пн-Пт: 9:00-18:00<br>Сб: 10:00-16:00</td>
+                </tr>
+                <tr>
+                    <td class="key">Сайт</td>
+                    <td class="value"><a href="https://www.impresssv.ru" target="_blank"
+                            rel="noopener">www.impresssv.ru</a></td>
+                </tr>
+            </table>
 
-        <section class="section orange">Отдел по работе с претензиями</section>
+        </main>
 
-        <table class="info">
-            <tr>
-                <td class="key">Менеджер по работе с претензиями</td>
-                <td class="value">number<br>email</td>
-            </tr>
-        </table>
-
-    </main>
-
-    <footer class="footer">
-        <p>© Evgeniy</p>
-    </footer>
-</div>
+        <footer class="footer">
+            <p>© Evgeniy</p>
+        </footer>
+    </div>
 </body>
+
 </html>

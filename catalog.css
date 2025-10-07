@@ -1,0 +1,275 @@
+/* Навигация */
+.main-nav {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 10px;
+  background: #f0f0f0;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: #ff6b35;
+  color: white;
+}
+
+/* Подзаголовок */
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin: 10px 0 30px 0;
+  font-style: italic;
+}
+
+/* Фильтры каталога */
+.catalog-controls {
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+/* Сетка товаров */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 0 20px 30px 20px;
+}
+
+/* Карточка товара */
+.product-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Бейджи */
+.product-badges {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+}
+
+.badge {
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 3px;
+  color: white;
+  margin-right: 5px;
+}
+
+.badge.sale {
+  background: #dc3545;
+}
+
+.badge.new {
+  background: #28a745;
+}
+
+/* Изображения товара */
+.product-images {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+.image-placeholder.dark-door {
+  background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 50%, #2c1810 100%);
+  color: white;
+}
+
+.image-placeholder.light-door {
+  background: linear-gradient(135deg, #f8f6f0 0%, #ede8dc 50%, #f8f6f0 100%);
+  color: #333;
+}
+
+.image-placeholder.entrance {
+  background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 50%, #1a1a1a 100%);
+  color: white;
+}
+
+.door-style {
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 10px;
+}
+
+/* Информация о товаре */
+.product-info {
+  padding: 20px;
+}
+
+.product-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  color: var(--text);
+}
+
+.product-specs {
+  margin-bottom: 20px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.product-specs p {
+  margin: 3px 0;
+  color: #555;
+}
+
+.product-specs strong {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Цены */
+.product-pricing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.current-price {
+  color: #ff6b35;
+  font-size: 20px;
+}
+
+.old-price {
+  color: #999;
+  text-decoration: line-through;
+  font-size: 14px;
+}
+
+.discount-price {
+  color: #666;
+  font-size: 14px;
+}
+
+.price::after {
+  content: " ₽";
+  font-size: 0.8em;
+  color: #666;
+}
+
+/* Подзаголовки секций */
+.subsection-title {
+  background: #333;
+  color: white;
+  padding: 8px 20px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px 20px 15px;
+  }
+
+  .product-card {
+    margin-bottom: 10px;
+  }
+
+  .product-info {
+    padding: 15px;
+  }
+
+  .product-specs {
+    font-size: 12px;
+  }
+
+  .nav-link {
+    display: block;
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    padding: 0 10px 15px 10px;
+  }
+
+  .product-images {
+    height: 150px;
+  }
+
+  .door-style {
+    font-size: 16px;
+  }
+
+  .product-name {
+    font-size: 18px;
+  }
+
+  .catalog-controls {
+    padding: 10px 15px;
+  }
+}
+
+/* Дополнительные стили для текста */
+.product-specs p strong {
+  display: inline-block;
+  min-width: 120px;
+}
+
+/* Выравнивание цен */
+.product-pricing {
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+
+/* Улучшение читаемости спецификаций */
+.product-specs p {
+  border-bottom: 1px solid #f5f5f5;
+  padding-bottom: 2px;
+  margin-bottom: 4px;
+}
+
+.product-specs p:last-child {
+  border-bottom: none;
+}
